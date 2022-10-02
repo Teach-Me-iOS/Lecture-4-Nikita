@@ -25,22 +25,21 @@ struct ContentView: View {
                         action: { selectedComand = command },
                         label: {
                             
-                            ZStack {
-                                command.image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .cornerRadius(cellCornerRadius)
-                                
-                                
-                                Text(command.name)
-                                    .font(.largeTitle)
-                                    .fontWeight(.medium)
-                                    .padding(9)
-                                    .background(.black)
-                                    .cornerRadius(10)
-                                    .frame(maxHeight: .infinity, alignment: .bottom)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
+                            command.image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 380, height: 300)
+                                .cornerRadius(cellCornerRadius)
+                                .overlay(
+                                    Text(command.name)
+                                        .font(.largeTitle)
+                                        .fontWeight(.medium)
+                                        .padding(9)
+                                        .background(.black)
+                                        .cornerRadius(10)
+                                        .frame(maxHeight: .infinity, alignment: .bottom)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                )
                         }
                     )
                     .padding()
